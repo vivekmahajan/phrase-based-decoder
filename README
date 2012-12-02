@@ -1,0 +1,3 @@
+-run make to execute the decoder
+-output stores the decoded sentences
+-since phrase lengths with size greater than 3 gives the same results we are only considering trigrams, bigrams and unigrams.
