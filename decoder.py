@@ -198,20 +198,20 @@ if __name__ == '__main__':
     decoder = Decoder(pt)
     for line in open(decoder_input_filename, "r"):
         output = decoder.decode(line[:-1].rstrip())
-	stack = []
-	print ">>>>>>>> ", line[:-1].rstrip(), " <<<<<<<<<"
-        #print "length ",output.__len__()
-	if output.__len__() == 0:
-	    print "Could not translate"
-	    continue
+        stack = []
+        print ">>>>>>>> ", line[:-1].rstrip(), " <<<<<<<<<"
+            #print "length ",output.__len__()
+        if output.__len__() == 0:
+            print "Could not translate"
+            continue
         while output.__len__() > 0:
             obj = output.pop()
-	    stack.append(obj)
-            #print obj.dest, obj.get_priority(), obj.p_Lm
-            #print output._heap[i][1].dest, output._heap[i][1].get_priority()
-	for i in range(0, n_best):
-	    if len(stack) == 0:
-	        break
-	    obj = stack.pop()
+            stack.append(obj)
+                #print obj.dest, obj.get_priority(), obj.p_Lm
+                #print output._heap[i][1].dest, output._heap[i][1].get_priority()
+        for i in range(0, n_best):
+            if len(stack) == 0:
+                break
+            obj = stack.pop()
             print obj.dest
             
