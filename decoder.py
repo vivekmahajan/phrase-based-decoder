@@ -2,7 +2,7 @@ from heap import Heap
 import sys
 from math import log
 import copy
-
+'''
 kenlm_swig_wrapper = "/cs/natlang-sw/Linux-x86_64/NL/LM/NGRAM-SWIG-KENLM"
 print "wrapper!!!!",kenlm_swig_wrapper
 if ( kenlm_swig_wrapper is None ):
@@ -12,7 +12,7 @@ sys.path.insert(1, kenlm_swig_wrapper)
 from kenlm import *
 path_lm = "/cs/natlang-data/wmt10/lm/eparl_nc_news_2m.en.lm"
 lm = readLM(path_lm)
-
+'''
 class phrase_table:
     def __init__(self, filename):
         self.phrase_table_file = open(filename, "r")
@@ -68,12 +68,15 @@ def generate_gaps(trans_source, end_d):
     return string_gaps
 
 def lang_model(destination):
+    #return 1.0
     #return KENLangModel.queryLM(destination.split(" "),len(destination.split(" ")))  # for SRILM wrapper
+    '''
     l = len(destination.split(" "))
     if l > 5:
         l = 5
     return getNGramProb(lm, destination , l, 'true')
-    #return 1.0
+    '''
+    return 1.0
 def generate_all_hypothesis(hp):
     #This will contains all the possible hypothesis
     hypothesis = []
